@@ -1,34 +1,135 @@
-/* ── LA TYPOGRAPHIE ─────────────────────────
-   Compare le texte et les titres des deux
-   écrans.
-
-   Pas de couleur ici : ce fichier est
-   partagé avec le jeu, où chaque monde
-   a les siennes.
-
-   À TOI, dans cet ordre :
-     1. ce que tu as trouvé — une différence
-        entre les deux écrans, ou une absence
-        si aucun ne s'en occupe ;
-     2. le critère qui aurait évité ça ;
-     3. le geste qui permet de le contrôler
-        sur une seule page ;
-     4. le CSS qui l'applique.
-
-   Les trois premiers s'écrivent en dessous.
-   ──────────────────────────────────────── */
-
-/* 1 · ce que j'ai trouvé :
-   2 · le critère         :
-   3 · on contrôle en     :
-*/
-
-/* 4 · À TOI */
-
-h1 {
-  /* 4 · À TOI */
+.titre {
+opacity: 0;
+animation:
+titreApparition 3s ease forwards,
+titreFlottement 5s ease-in-out 3s infinite;
 }
 
-h2 {
-  /* 4 · À TOI */
+.titre::after {
+content: "";
+display: block;
+width: min(220px, 35vw);
+height: 1px;
+margin: 12px auto 0;
+background: linear-gradient(90deg, transparent, #b58b70, transparent);
+box-shadow: 0 0 12px #a83240;
+}
+
+@keyframes titreApparition {
+from {
+opacity: 0;
+filter: blur(15px);
+transform: translateY(25px);
+}
+to {
+opacity: 1;
+filter: blur(0);
+transform: translateY(0);
+}
+}
+
+@keyframes titreFlottement {
+0%, 100% {
+translate: 0 0;
+}
+50% {
+translate: 0 -6px;
+}
+}
+/* TEXTES — IDENTITÉ SOMBREVAL */
+
+body {
+color: #eadbd3;
+font-family: Georgia, "Times New Roman", serif;
+}
+
+
+
+.titre {
+color: #eadbd3;
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(2rem, 5.2vw, 5rem);
+font-weight: normal;
+letter-spacing: clamp(3px, .8vw, 9px);
+text-transform: uppercase;
+
+text-shadow:
+0 0 15px #ffffff20,
+0 0 35px #9b3640,
+0 0 70px #551923;
+}
+
+
+
+.accroche {
+color: #b8a4a0;
+font-family: Georgia, "Times New Roman", serif;
+font-size: .95rem;
+font-style: italic;
+letter-spacing: 3px;
+}
+
+/* LABEL DU PSEUDO */
+
+.entree label {
+color: #eadbd3;
+font-family: Georgia, "Times New Roman", serif;
+font-size: .95rem;
+letter-spacing: 2px;
+}
+
+/* CHAMP PSEUDO */
+
+.entree input {
+color: #eadbd3;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1rem;
+letter-spacing: 1px;
+}
+
+.entree input::placeholder {
+color: #b8a4a0;
+font-family: Georgia, "Times New Roman", serif;
+font-style: italic;
+}
+
+/* TEXTE D'AIDE */
+
+.aide {
+color: #b8a4a0;
+font-family: Georgia, "Times New Roman", serif;
+font-size: .85rem;
+font-style: italic;
+letter-spacing: 1px;
+}
+
+/* MESSAGE D'ERREUR */
+
+.erreur {
+color: #d52d3c;
+font-family: Georgia, "Times New Roman", serif;
+font-size: .9rem;
+font-style: italic;
+text-shadow: 0 0 12px #a82e3a78;
+}
+
+/* BOUTON */
+
+.entree button {
+color: #eadbd3;
+font-family: Georgia, "Times New Roman", serif;
+font-size: .95rem;
+font-weight: normal;
+letter-spacing: 3px;
+text-transform: uppercase;
+}
+
+/* PIED DE PAGE */
+
+.pied {
+color: #b8a4a0;
+font-family: Georgia, "Times New Roman", serif;
+font-size: .85rem;
+font-style: italic;
+letter-spacing: 2px;
 }
